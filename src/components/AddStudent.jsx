@@ -14,7 +14,7 @@ export default function AddStudent({ fetchAllStudents }) {
 
   async function getCampuses() {
     try {
-      const response = await axios.get("https://crud-backend-gilt.vercel.app/api/campuses");
+      const response = await axios.get("http://localhost:8080/api/campuses");
       const campusList = response.data;
       setCampuses(campusList);
     } catch (error) {
@@ -30,7 +30,7 @@ export default function AddStudent({ fetchAllStudents }) {
     try {
       const campusId = campus ? Number(campus) : undefined;
 
-      await axios.post("https://crud-backend-gilt.vercel.app/api/students", {
+      await axios.post("http://localhost:8080/api/students", {
         firstName: fn,
         lastName: ln,
         email: email,

@@ -8,7 +8,7 @@ const CampusCard = ({ campus, fetchAllCampuses, students }) => {
     const confirmed = window.confirm("Are you sure you want to delete this campus?");
     if (!confirmed) return;
     try {
-      await axios.delete(`https://crud-backend-gilt.vercel.app/api/campuses/${campus.id}`);
+      await axios.delete(`http://localhost:8080/api/campuses/${campus.id}`);
       fetchAllCampuses();
     } catch (error) {
       console.error("Error deleting campus:", error);

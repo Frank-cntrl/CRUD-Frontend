@@ -8,7 +8,7 @@ const StudentCard = ({ student, fetchAllStudents }) => {
     const confirmed = window.confirm("Are you sure you want to delete this student?");
     if (!confirmed) return;
     try {
-      await axios.delete(`https://crud-backend-gilt.vercel.app/api/students/${student.id}`);
+      await axios.delete(`http://localhost:8080/api/students/${student.id}`);
       fetchAllStudents();
     } catch (error) {
       console.error("Error deleting student:", error);

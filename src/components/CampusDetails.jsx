@@ -23,7 +23,7 @@ const CampusDetails = ({ students, fetchAllStudents }) => {
     setError(null);
     try {
       const response = await axios.get(
-        `https://crud-backend-gilt.vercel.app/api/campuses/${campusId}`
+        `http://localhost:8080/api/campuses/${campusId}`
       );
       const campusData = response.data;
       setCampus(campusData);
@@ -72,7 +72,7 @@ const CampusDetails = ({ students, fetchAllStudents }) => {
     setLoading(true);
     setError(null);
     try {
-      const updateUrl = `https://crud-backend-gilt.vercel.app/api/campuses/${campusId}`;
+      const updateUrl = `http://localhost:8080/api/campuses/${campusId}`;
       await axios.patch(updateUrl, formData);
       setIsEditing(false);
       fetchCampus();
@@ -94,7 +94,7 @@ const CampusDetails = ({ students, fetchAllStudents }) => {
     if (!selectedStudentId) return;
     try {
       await axios.patch(
-        `https://crud-backend-gilt.vercel.app/api/students/${selectedStudentId}`,
+        `http://localhost:8080/api/students/${selectedStudentId}`,
         { campusId: campus.id }
       );
       if (fetchAllStudents) fetchAllStudents();
@@ -105,9 +105,9 @@ const CampusDetails = ({ students, fetchAllStudents }) => {
     }
   };
 
-  if (loading) return <div className="text-center text-lg py-8">Loading campus details...</div>;
-  if (error) return <div className="text-center text-lg py-8 text-red-500">{error}</div>;
-  if (!campus) return <div className="text-center text-lg py-8">Campus not found.</div>;
+  if (loading) return <div>Loading campus details...</div>;
+  if (error) return <div>{error}</div>;
+  if (!campus) return <div>Campus not found.</div>;
 
   return (
     <div className="center-container">
