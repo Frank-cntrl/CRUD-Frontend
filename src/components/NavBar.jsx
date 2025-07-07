@@ -15,6 +15,10 @@ const NavBar = () => {
     setSearchTerm("");
   };
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+ 
   return (
     <nav className="navbar">
 
@@ -23,6 +27,7 @@ const NavBar = () => {
       <NavLink to="/students">Students</NavLink>
       <NavLink to="/faculty">Faculty</NavLink>
       <NavLink to="/contact">Contact Us</NavLink>
+      <NavLink to="/login" className="login-button">Login</NavLink>
 
       <form onSubmit={handleSearch} className="search-form">
         <input
