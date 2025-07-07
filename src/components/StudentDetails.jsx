@@ -10,7 +10,7 @@ const StudentDetails = () => {
   const fetchStudent = async () => {
     try {
       const response = await axios.get(
-        `https://crud-backend-gilt.vercel.app/api/students/${studentId}`
+        `http://localhost:8080/api/students/${studentId}`
       );
       setStudent(response.data);
     } catch (error) {

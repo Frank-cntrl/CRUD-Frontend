@@ -25,7 +25,7 @@ const StudentDetails = () => {
         setError(null);
         try {
             const response = await axios.get(
-                `https://crud-backend-gilt.vercel.app/api/students/${studentId}`
+                `http://localhost:8080/api/students/${studentId}`
             );
             const studentData = response.data;
             setStudent(studentData);
@@ -47,7 +47,7 @@ const StudentDetails = () => {
     const fetchAllCampuses = async () => {
         setCampusesLoading(true);
         try {
-            const response = await axios.get('https://crud-backend-gilt.vercel.app/api/campuses');
+            const response = await axios.get('http://localhost:8080/api/campuses');
             setCampusesList(response.data);
         } catch (err) {
         } finally {
@@ -99,7 +99,7 @@ const StudentDetails = () => {
         setLoading(true);
         setError(null);
         try {
-            const updateUrl = `https://crud-backend-gilt.vercel.app/api/students/${studentId}`;
+            const updateUrl = `http://localhost:8080/api/students/${studentId}`;
             await axios.patch(updateUrl, formData);
             setIsEditing(false);
             fetchStudent();
@@ -122,9 +122,9 @@ const StudentDetails = () => {
         }
     };
 
-    if (loading || campusesLoading) return <div className="text-center text-lg py-8">Loading student details and campuses...</div>;
-    if (error) return <div className="text-center text-lg py-8 text-red-500">{error}</div>;
-    if (!student) return <div className="text-center text-lg py-8">Student not found.</div>;
+    if (loading || campusesLoading) return <div>Loading student details and campuses...</div>;
+    if (error) return <div>{error}</div>;
+    if (!student) return <div>Student not found.</div>;
 
     return (
         <div className="center-container">
@@ -204,8 +204,8 @@ const StudentDetails = () => {
                     )}
 
                     {isEditing && (
-                        <div > {/* Removed flex and mt-2 */}
-                            <label htmlFor="imageUrl" >Image URL:</label> {/* Removed text-sm font-semibold mb-1 */}
+                        <div > {}
+                            <label htmlFor="imageUrl" >Image URL:</label> {}
                             <input
                                 type="text"
                                 id="imageUrl"

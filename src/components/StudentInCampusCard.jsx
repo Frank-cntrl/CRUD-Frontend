@@ -9,7 +9,7 @@ const StudentCard = ({ student, fetchAllStudents }) => {
     if (!confirmed) return;
     try {
       await axios.patch(
-      `https://crud-backend-gilt.vercel.app/api/students/${student.id}`,
+      `http://localhost:8080/api/students/${student.id}`,
       { campusId: null }
     );
     fetchAllStudents();

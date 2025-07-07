@@ -24,7 +24,7 @@ const App = () => {
 
   async function fetchAllStudents() {
     try {
-      const response = await axios.get("https://crud-backend-gilt.vercel.app/api/students/");
+      const response = await axios.get("http://localhost:8080/api/students/");
       setStudents(response.data);
     } catch (error) {
       console.error("Error fetching students:", error);
@@ -33,7 +33,7 @@ const App = () => {
 
   async function fetchAllCampuses() {
     try {
-      const response = await axios.get("https://crud-backend-gilt.vercel.app/api/campuses");
+      const response = await axios.get("http://localhost:8080/api/campuses");
       setCampuses(response.data);
     } catch (error) {
       console.error("Error fetching campuses:", error);

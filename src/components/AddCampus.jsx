@@ -5,7 +5,7 @@ import "./AddCampusStyles.css";
 export default function AddCampus() {
   async function addCampus(c, add, imgUrl, desc) {
     try {
-      await axios.post("https://crud-backend-gilt.vercel.app/api/campuses", {
+      await axios.post("localhost:8080/api/campuses", {
         name: c,
         address: add,
         imageUrl: imgUrl || undefined,
