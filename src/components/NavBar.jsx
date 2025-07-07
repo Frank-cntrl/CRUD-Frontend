@@ -27,8 +27,6 @@ const NavBar = () => {
       <NavLink to="/signup">Sign Up</NavLink>
       <NavLink to="/logout">Log Out</NavLink>
 
-
-
       <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"

@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./AppStyles.css";
-
 import NavBar from "./components/NavBar";
 import LandingPage from "./components/LandingPage";
 import AllCampuses from "./components/AllCampuses";
@@ -13,10 +12,11 @@ import StudentDetails from "./components/StudentDetails";
 import AddStudent from "./components/AddStudent";
 import AddCampus from "./components/AddCampus";
 import EditStudent from "./components/EditStudent";
+//import EditCampus from "./components/EditCampus";
 import Footer from "./components/Footer";
 import SearchResults from "./components/SearchResults";
 import Faculty from "./components/Faculty";
-
+import Login from "./components/login";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -24,7 +24,7 @@ const App = () => {
 
   async function fetchAllStudents() {
     try {
-      const response = await axios.get("http://localhost:8080/api/students/");
+      const response = await axios.get("https://crud-backend-gilt.vercel.app/api/students/");
       setStudents(response.data);
     } catch (error) {
       console.error("Error fetching students:", error);
@@ -33,7 +33,7 @@ const App = () => {
 
   async function fetchAllCampuses() {
     try {
-      const response = await axios.get("http://localhost:8080/api/campuses");
+      const response = await axios.get("https://crud-backend-gilt.vercel.app/api/campuses");
       setCampuses(response.data);
     } catch (error) {
       console.error("Error fetching campuses:", error);
@@ -92,7 +92,7 @@ const App = () => {
             element={<AddStudent fetchAllStudents={fetchAllStudents} />}
           />
           <Route path="/faculty" element={<Faculty />} />
-
+          <Route path="/login" element={<Login />} />
 
           <Route
             path="/add-campus"
@@ -123,6 +123,5 @@ root.render(
     <App />
   </Router>
 );
-
 
 
