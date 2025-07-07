@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 import SearchResults from "./components/SearchResults";
 import Faculty from "./components/Faculty";
 import Login from "./components/login";
+import Signup from "./components/signup";
+
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -93,6 +95,7 @@ const App = () => {
           />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
           <Route
             path="/add-campus"
